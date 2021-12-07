@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+}
+body{
+  line-height: 1,4;
+}
+article > h1 {
+  font-family: arial;
+  font-size: 5em;
+}
+
+article > h2 {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 2em;
+}
+
+p{
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+p > span{
+  font-family: arial;
+  font-weight: 600;
+}
+/* grid definieren: */
+
+img{
+  width: 100%;
+}
+
+article{
+  display: grid;
+  grid-template-columns:
+[full-start]minmax(0.5rem, 0.5fr)
+[frame-start]minmax(0.5rem, 0.5fr)
+[content-start]minmax(auto, 95ch)
+[content-end]minmax(0.5rem, 0.5fr)
+[frame-end]minmax(0.5rem, 0.5fr)
+[full-end];
+}
+article > * {
+  grid-column: 3;
+}
+article > h1{
+  grid-column: frame-start / content-end;
+}
+
+.full{
+  grid-column: full-start / full-end;
+}
+
+.content{
+  grid-column: content-start / content-end;
+}
+
+.frame{
+  grid-column: frame-start / frame-end;
+}
+
+.right-full{
+  grid-column: content-start / full-end;
+}
+
+.caption{
+  grid-column: content-end / frame-end;
+  font-size: 1em;
+  color: grey;
+}
